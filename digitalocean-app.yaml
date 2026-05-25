@@ -14,7 +14,7 @@ services:
       - key: VAULT_ADDR
         scope: RUN_TIME
         value: http://localhost:8200 # Note: Vault nécessite une configuration spécifique sur DO
-    http_port: 8000
+    http_port: 8080
 
   - name: frontend
     github:
