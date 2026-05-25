@@ -1,0 +1,3 @@
+# Empty requirements for root detection
+fastapi
+uvicorn

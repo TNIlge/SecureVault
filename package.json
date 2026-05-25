@@ -1,0 +1,8 @@
+{
+  "name": "secure-vault-root",
+  "private": true,
+  "description": "Root package for DigitalOcean detection",
+  "scripts": {
+    "start": "echo 'This is a monorepo. Use the subdirectories for deployment.'"
+  }
+}
