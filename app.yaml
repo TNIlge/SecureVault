@@ -1,10 +1,6 @@
 name: secure-vault
 services:
   - name: backend
-    github:
-      repo: <VOTRE_REPO_GITHUB> # À remplacer par DigitalOcean lors de la connexion
-      branch: main
-      deploy_on_push: true
     source_dir: backend
     dockerfile_path: Dockerfile
     envs:
@@ -13,21 +9,21 @@ services:
         value: ${db.DATABASE_URL}
       - key: VAULT_ADDR
         scope: RUN_TIME
-        value: http://localhost:8200 # Note: Vault nécessite une configuration spécifique sur DO
+        value: http://localhost:8200
     http_port: 8080
+    instance_count: 1
+    instance_size_slug: basic-xxs
 
   - name: frontend
-    github:
-      repo: <VOTRE_REPO_GITHUB>
-      branch: main
-      deploy_on_push: true
     source_dir: frontend
     dockerfile_path: Dockerfile
     envs:
       - key: REACT_APP_API_URL
         scope: RUN_TIME
         value: ${backend.PUBLIC_URL}
-    http_port: 3000
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: basic-xxs
 
 databases:
   - name: db
